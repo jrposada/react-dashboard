@@ -134,4 +134,35 @@ describe('Given getCollision()', () => {
     })
     expect(result).toBeFalsy()
   })
+
+  /**
+   * |----
+   * |o xx|
+   * |    |
+   * |    |
+   * |    |
+   * |----|
+   */
+  it('when case 4 returns false', () => {
+    const result = getCollision({
+      colStart: 0,
+      rowStart: 0,
+      numCols: 4,
+      numRows: 4,
+      colSpan: 1,
+      rowSpan: 1,
+      state: {
+        items: [
+          {
+            colSpan: 2,
+            colStart: 2,
+            id: 'test',
+            rowSpan: 1,
+            rowStart: 0,
+          },
+        ],
+      },
+    })
+    expect(result).toBeFalsy()
+  })
 })

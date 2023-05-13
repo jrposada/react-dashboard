@@ -140,6 +140,10 @@ function useDashboard({ previewId }: DashboardParams) {
                 'opacity 300ms ease-out, top 300ms ease-out, left 300ms ease-out'
             }
 
+            // TODO: instead of put element in straight into final position iterate over current order of flow and put everything
+            // if it does not conflict with new desired position. On conflict insert moved element and then keep looping over the
+            // elements to try and fit the rest. This should keep current order as much as possible while moving target to desired
+            // position.
             // Move rest of elements to make space according to preview position.
             updatePositions({
               state: { items: [{ id: previewId, colSpan, colStart: col, rowSpan, rowStart: row }] },
